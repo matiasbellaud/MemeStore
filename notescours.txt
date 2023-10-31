@@ -1,0 +1,36 @@
+		GIT
+
+git add <nomdufichier.jsp> -> git commit -m <"vk,dknkfd,"> #suivre un fich -> #mettre une note sur le commit
+git status #fich posant pb
+git switch -c <nom> / git branch <nom> #créer une branche
+git push #envoyer sur git
+git touch #créer un fichier
+git log 
+git branch -D <nom branche> #delete a branch 
+git branch <nom> #créer une branche
+git fetch origin #liste des branches du serveur
+
+vim: echap + : + w + q
+
+		VSC:
+ctrl + MAJ + p "reindent"
+"go fmt" indentation & passage à la ligne
+
+
+CTRL + F: chercher du txt
+Wind + ; = emojis
+
+
+
+
+
+
+Nomenclature: façon de nommer les choses
+Les noms doivent représenter le mieux possible & éviter les confusions
+camelCase/PaskalCase/snake_case/kebab-case
+isEven = paire / isOdd = impaire
+Fonction: verbe
+
+
+
+Set-NetIPInterface -InterfaceIndex 4 -Dhcp enable/disabled
