@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hangman Web</title>
+</head>
+<body>
+    <div id="game">
+        <p>Le mot à deviner contient <span id="word-length">?</span> lettres.</p>
+        <p>Voici les lettres trouvées : <span id="found-letters"></span></p>
+    </div>
+    <script>
+        // Récupère le mot et les lettres trouvées
+        const data = JSON.parse(document.querySelector("body").textContent);
+
+        // Met à jour le mot à deviner
+        const wordLength = document.querySelector("#word-length");
+        wordLength.textContent = data.Mot.length;
+        const foundLetters = document.querySelector("#found-letters");
+        foundLetters.textContent = data.Soluce.join("");
+    </script>
+</body>
+</html>
