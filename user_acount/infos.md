@@ -2,7 +2,7 @@
 
 ## Le hashing :
 
- - Utilisation : le SHA-2 dans une de ses implémentations : SHA-256, SHA-512, SHA-384, SHA-224.
+ - Utilisation : le SHA-2 dans une de ses implémentations, plus présisément le SHA-256.
  - Mise en place : a la création du compte, conection, modification de mot de passe ou de tout autre paramétre
 
 Solution : un seul programe qui prend en paramétre une string et retourne son hash
@@ -26,4 +26,4 @@ Solution : un seul programe qui prend en paramétre une string et retourne son h
  - le front sécurisé.
  - les intéraction front/back sécurisé.
  - sécurité des comptes (hashing des mots de passe).
- - 
+ - changer le mot de passe de l'utilisateur, par mail
