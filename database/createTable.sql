@@ -1,10 +1,12 @@
 CREATE TABLE Account (
     IdUser SERIAL PRIMARY KEY,
     Description VARCHAR,
-    Mail VARCHAR NOT NULL
+    Mail VARCHAR NOT NULL,
+
+    UNIQUE(mail)
 );
 
-CREATE TABLE infoSecurAccount (
+CREATE TABLE InfoSecurAccount (
     IdUser INTEGER  NOT NULL,
     Username VARCHAR(25) NOT NULL,
     Password VARCHAR NOT NULL,
