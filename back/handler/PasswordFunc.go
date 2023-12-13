@@ -42,7 +42,7 @@ func HasingFunc(password string) (hash string, err error) {
 	keyb64 := base64.RawStdEncoding.EncodeToString(key)
 	hashb64 := base64.RawStdEncoding.EncodeToString(hashedPassword)
 
-	stringToStock := fmt.Sprintf("$argon2id$v=%d$m=%d,t=%d,p=%d$%s$%s", argon2.Version, conste.memory, conste.iterations, conste.parallelism, keyb64, hashb64)
+	stringToStock := fmt.Sprintf("$v=%d$%s$%s", argon2.Version, keyb64, hashb64)
 
 	return stringToStock, nil
 }
@@ -72,20 +72,20 @@ func PasswordEqualHash(password, Hash string) (info bool, err error) {
 
 func ReadHash(StockHash string) (key, hash []byte, err error) {
 	values := strings.Split(StockHash, "$")
-	if len(values) != 6 {
+	if len(values) != 4 {
 		return nil, nil, ErrInvalidHash
 	}
 
 	var version int
-	_, err = fmt.Sscanf(values[2], "v=%d", &version)
+	_, err = fmt.Sscanf(values[1], "v=%d", &version)
 	if err != nil {
 		return nil, nil, err
 	}
 	if version != argon2.Version {
 		return nil, nil, ErrIncompatibleVersion
 	}
-	
-	key, err = base64.RawStdEncoding.Strict().DecodeString(values[4])
+
+	key, err = base64.RawStdEncoding.Strict().DecodeString(values[2])
 	if err != nil {
 		return nil, nil, err
 	}
@@ -93,7 +93,7 @@ func ReadHash(StockHash string) (key, hash []byte, err error) {
 		return nil, nil, ErrInvalidHash
 	}
 
-	hash, err = base64.RawStdEncoding.Strict().DecodeString(values[5])
+	hash, err = base64.RawStdEncoding.Strict().DecodeString(values[3])
 	if err != nil {
 		return nil, nil, err
 	}
