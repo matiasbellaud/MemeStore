@@ -10,6 +10,8 @@ func MainHandler(w http.ResponseWriter, r *http.Request) {
 	switch true {
 	case url[1] == "" && len(url) == 2:
 		Connection(w, r)
+	case url[1] == "inscription" && len(url) == 2:
+		Inscription(w, r)
 	case url[1] == "InvalidPath" && len(url) == 2:
 		InvalidPath(w, r)
 	default:
