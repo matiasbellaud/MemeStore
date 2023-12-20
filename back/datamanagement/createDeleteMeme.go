@@ -8,3 +8,8 @@ func CreateMeme(idUser int, memeName string, urlMeme string, description string,
 	// créer le meme dans la table meme
 	AddDeleteUpdateDB("INSERT INTO meme (iduser, memename, urlmeme, description, topic, favourite) VALUES ($1,$2,$3,$4,$5,$6);", idUser, memeName, urlMeme, description, topic, false)
 }
+
+func DeleteMeme(idMeme int) {
+	// supprimer le meme dans la table meme
+	AddDeleteUpdateDB("DELETE FROM films WHERE idMeme = $1';", idMeme)
+}
